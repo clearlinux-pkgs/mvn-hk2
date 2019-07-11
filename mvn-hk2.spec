@@ -4,7 +4,7 @@
 #
 Name     : mvn-hk2
 Version  : 2.4.0.b34
-Release  : 3
+Release  : 4
 URL      : https://github.com/javaee/hk2/archive/2.4.0-b34.tar.gz
 Source0  : https://github.com/javaee/hk2/archive/2.4.0-b34.tar.gz
 Source1  : https://repo1.maven.org/maven2/org/glassfish/hk2/external/2.4.0-b34/external-2.4.0-b34.pom
@@ -20,6 +20,7 @@ Source10  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-locator/2.4.0-b
 Source11  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-parent/2.4.0-b34/hk2-parent-2.4.0-b34.pom
 Source12  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.jar
 Source13  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.pom
+Source14  : https://repo1.maven.org/maven2/org/glassfish/pom/8/pom-8.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CDDL-1.1 GPL-2.0
@@ -88,6 +89,9 @@ cp %{SOURCE12} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34
 cp %{SOURCE13} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/pom/8
+cp %{SOURCE14} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/pom/8
+
 
 %files
 %defattr(-,root,root,-)
@@ -107,3 +111,4 @@ cp %{SOURCE13} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-parent/2.4.0-b34/hk2-parent-2.4.0-b34.pom
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.jar
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.pom
+/usr/share/java/.m2/repository/org/glassfish/pom/8/pom-8.pom
