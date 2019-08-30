@@ -4,7 +4,7 @@
 #
 Name     : mvn-hk2
 Version  : 2.4.0.b34
-Release  : 4
+Release  : 5
 URL      : https://github.com/javaee/hk2/archive/2.4.0-b34.tar.gz
 Source0  : https://github.com/javaee/hk2/archive/2.4.0-b34.tar.gz
 Source1  : https://repo1.maven.org/maven2/org/glassfish/hk2/external/2.4.0-b34/external-2.4.0-b34.pom
