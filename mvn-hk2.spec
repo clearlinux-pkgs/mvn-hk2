@@ -4,7 +4,7 @@
 #
 Name     : mvn-hk2
 Version  : 2.4.0.b34
-Release  : 7
+Release  : 8
 URL      : https://github.com/javaee/hk2/archive/2.4.0-b34.tar.gz
 Source0  : https://github.com/javaee/hk2/archive/2.4.0-b34.tar.gz
 Source1  : https://repo1.maven.org/maven2/org/glassfish/hk2/external/2.4.0-b34/external-2.4.0-b34.pom
@@ -18,10 +18,12 @@ Source8  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-bom/2.4.0-b34/hk
 Source9  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-bom/2.5.0/hk2-bom-2.5.0.pom
 Source10  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.jar
 Source11  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.pom
-Source12  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-parent/2.4.0-b34/hk2-parent-2.4.0-b34.pom
-Source13  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.jar
-Source14  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.pom
-Source15  : https://repo1.maven.org/maven2/org/glassfish/pom/8/pom-8.pom
+Source12  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-locator/2.5.0/hk2-locator-2.5.0.jar
+Source13  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-locator/2.5.0/hk2-locator-2.5.0.pom
+Source14  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-parent/2.4.0-b34/hk2-parent-2.4.0-b34.pom
+Source15  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.jar
+Source16  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.pom
+Source17  : https://repo1.maven.org/maven2/org/glassfish/pom/8/pom-8.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CDDL-1.1 GPL-2.0
@@ -88,17 +90,23 @@ cp %{SOURCE10} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34
 cp %{SOURCE11} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.pom
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.5.0
+cp %{SOURCE12} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.5.0/hk2-locator-2.5.0.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.5.0
+cp %{SOURCE13} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.5.0/hk2-locator-2.5.0.pom
+
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-parent/2.4.0-b34
-cp %{SOURCE12} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-parent/2.4.0-b34/hk2-parent-2.4.0-b34.pom
+cp %{SOURCE14} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-parent/2.4.0-b34/hk2-parent-2.4.0-b34.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34
-cp %{SOURCE13} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.jar
+cp %{SOURCE15} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34
-cp %{SOURCE14} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.pom
+cp %{SOURCE16} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/pom/8
-cp %{SOURCE15} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/pom/8/pom-8.pom
+cp %{SOURCE17} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/pom/8/pom-8.pom
 
 
 %files
@@ -117,6 +125,8 @@ cp %{SOURCE15} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/pom/8/po
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-bom/2.5.0/hk2-bom-2.5.0.pom
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.jar
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.pom
+/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.5.0/hk2-locator-2.5.0.jar
+/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.5.0/hk2-locator-2.5.0.pom
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-parent/2.4.0-b34/hk2-parent-2.4.0-b34.pom
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.jar
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.pom
