@@ -4,7 +4,7 @@
 #
 Name     : mvn-hk2
 Version  : 2.4.0.b34
-Release  : 6
+Release  : 7
 URL      : https://github.com/javaee/hk2/archive/2.4.0-b34.tar.gz
 Source0  : https://github.com/javaee/hk2/archive/2.4.0-b34.tar.gz
 Source1  : https://repo1.maven.org/maven2/org/glassfish/hk2/external/2.4.0-b34/external-2.4.0-b34.pom
@@ -15,16 +15,20 @@ Source5  : https://repo1.maven.org/maven2/org/glassfish/hk2/external/javax.injec
 Source6  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-api/2.4.0-b34/hk2-api-2.4.0-b34.jar
 Source7  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-api/2.4.0-b34/hk2-api-2.4.0-b34.pom
 Source8  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-bom/2.4.0-b34/hk2-bom-2.4.0-b34.pom
-Source9  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.jar
-Source10  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.pom
-Source11  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-parent/2.4.0-b34/hk2-parent-2.4.0-b34.pom
-Source12  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.jar
-Source13  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.pom
-Source14  : https://repo1.maven.org/maven2/org/glassfish/pom/8/pom-8.pom
+Source9  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-bom/2.5.0/hk2-bom-2.5.0.pom
+Source10  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.jar
+Source11  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.pom
+Source12  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-parent/2.4.0-b34/hk2-parent-2.4.0-b34.pom
+Source13  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.jar
+Source14  : https://repo1.maven.org/maven2/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.pom
+Source15  : https://repo1.maven.org/maven2/org/glassfish/pom/8/pom-8.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CDDL-1.1 GPL-2.0
 Requires: mvn-hk2-data = %{version}-%{release}
+BuildRequires : apache-ant
+BuildRequires : apache-maven
+BuildRequires : buildreq-mvn
 
 %description
 DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
@@ -46,51 +50,55 @@ data components for the mvn-hk2 package.
 
 
 %prep
+%setup -q -n hk2-2.4.0-b34
 
 %build
 
 %install
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/2.4.0-b34
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/2.4.0-b34
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/2.4.0-b34/external-2.4.0-b34.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b34
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b34
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b34/aopalliance-repackaged-2.4.0-b34.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b34
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b34
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b34/aopalliance-repackaged-2.4.0-b34.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b34
-cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b34
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b34/javax.inject-2.4.0-b34.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b34
-cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b34
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b34/javax.inject-2.4.0-b34.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b34
-cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b34
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b34/hk2-api-2.4.0-b34.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b34
-cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b34
+cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b34/hk2-api-2.4.0-b34.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-bom/2.4.0-b34
-cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-bom/2.4.0-b34
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-bom/2.4.0-b34/hk2-bom-2.4.0-b34.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-bom/2.5.0
+cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-bom/2.5.0/hk2-bom-2.5.0.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34
-cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34
+cp %{SOURCE10} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34
-cp %{SOURCE10} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34
+cp %{SOURCE11} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-parent/2.4.0-b34
-cp %{SOURCE11} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-parent/2.4.0-b34
+cp %{SOURCE12} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-parent/2.4.0-b34/hk2-parent-2.4.0-b34.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34
-cp %{SOURCE12} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34
+cp %{SOURCE13} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34
-cp %{SOURCE13} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34
+cp %{SOURCE14} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/pom/8
-cp %{SOURCE14} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/pom/8
+cp %{SOURCE15} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/pom/8/pom-8.pom
 
 
 %files
@@ -106,6 +114,7 @@ cp %{SOURCE14} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/pom/8
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b34/hk2-api-2.4.0-b34.jar
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b34/hk2-api-2.4.0-b34.pom
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-bom/2.4.0-b34/hk2-bom-2.4.0-b34.pom
+/usr/share/java/.m2/repository/org/glassfish/hk2/hk2-bom/2.5.0/hk2-bom-2.5.0.pom
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.jar
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.pom
 /usr/share/java/.m2/repository/org/glassfish/hk2/hk2-parent/2.4.0-b34/hk2-parent-2.4.0-b34.pom
